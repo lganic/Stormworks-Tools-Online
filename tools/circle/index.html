@@ -40,13 +40,6 @@
                     pieces</label><label><input id="circle" type="checkbox" checked> Reference circle</label>
             </section>
             <button id="reset" class="reset">Reset settings</button>
-            <details>
-                <summary>How it works</summary>
-                <p>Drag any of the four handles to change the diameter. The shape stays circular, and the diameter
-                    controls update as you drag.</p>
-                <p>Starting at the top, each step compares a block, 1x1, 1x2, and 1x4 wedge by their mean squared error
-                    against the circle. The chosen section is mirrored to form the full shape.</p>
-            </details>
         </aside>
         <div class="workspace">
             <div id="plot" tabindex="0" role="img"
