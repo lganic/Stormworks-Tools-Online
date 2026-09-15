@@ -240,7 +240,8 @@ if (typeof document !== 'undefined') {
 
         ctx.closePath();
         if (fill) {
-            ctx.fillStyle = fill; ctx.fill(); 
+            ctx.fillStyle = fill;
+            ctx.fill(); 
         }
         
         if (stroke) {
@@ -314,8 +315,17 @@ if (typeof document !== 'undefined') {
                     poly = [to_point, from_point, [close(to_point[0], from_point[0]), close(to_point[1], from_point[1])]];
                 } 
 
-                // Stroke the path.
-                path(poly, 'rgba(112,80,181,.34)', '#7050b5', 1);
+                const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+                const fillColor = colorScheme.matches
+                    ? '#b99ae9'
+                    : '#b9a7e1';
+
+                const strokeColor = colorScheme.matches
+                    ? '#7a67cc'
+                    : '#7050b5';
+
+                path(poly, fillColor, strokeColor, 1);
             }
         }
 
@@ -362,8 +372,6 @@ if (typeof document !== 'undefined') {
     }
 
     function sync() {
-
-        console.log("sync");
 
         // Generate the shape, depending on whether we are making an ellipse or not.
         points = ellipse ? generateEllipse(shapeWidth, shapeHeight, weight, margin) : generate(diameter, weight);

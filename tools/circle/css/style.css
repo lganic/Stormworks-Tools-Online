@@ -492,3 +492,121 @@ header nav a:hover {
         text-align: center
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        color: #e7e5ed;
+        background: #15141a;
+        accent-color: #a98add;
+    }
+
+    body {
+        background: #15141a;
+    }
+
+    header,
+    aside {
+        background: #1d1c23;
+    }
+
+    header {
+        border-bottom-color: #35333e;
+    }
+
+    aside {
+        border-right-color: #35333e;
+    }
+
+    h1 span,
+    header a,
+    summary {
+        color: #b8b4c3;
+    }
+
+    .eyebrow,
+    label span,
+    .number-row span,
+    .range-labels,
+    p,
+    footer {
+        color: #aaa6b5;
+    }
+
+    section {
+        border-bottom-color: #35333e;
+    }
+
+    .number-row input {
+        color: #ded2f2;
+        background: #27242e;
+        border-color: #484451;
+    }
+
+    output {
+        color: #d0b8f4;
+        background: #342a45;
+    }
+
+    button:hover {
+        background: #373041;
+    }
+
+    .reset,
+    .zoom button {
+        color: #d4d0dc;
+        background: #27262d;
+        border-color: #484650;
+    }
+
+    .reset:hover,
+    .zoom button:hover {
+        background: #383340;
+    }
+
+    header nav {
+        background: #29262f;
+    }
+
+    header nav a[aria-current="page"] {
+        color: #d5baf8;
+        background: #3b3348;
+        box-shadow: 0 1px 4px #0005;
+    }
+
+    header nav a:hover {
+        background: #35303e;
+    }
+
+    #plot {
+        background: #1b1a20;
+        border-color: #3c3a45;
+    }
+
+    .plot-note {
+        color: #bbb7c4;
+        background: #27262dee;
+    }
+
+    .swatch {
+        background: #a98add;
+        border-color: #c0a6eb;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    summary:focus-visible,
+    #plot:focus-visible {
+        outline-color: #b99ae9;
+    }
+
+    @media (max-width: 760px) {
+        header nav {
+            background: none;
+        }
+
+        header nav a[aria-current="page"] {
+            background: #3b3348;
+        }
+    }
+}
