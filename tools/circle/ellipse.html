@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Stormworks Ellipse Tool</title>
+    <meta name="description"
+        content="Build ellipses and circles from blocks and wedges with independent width, height, block weight, and joining margin.">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+</head>
+
+<body data-mode="ellipse">
+
+    <header>
+        <a href="/"  style="margin:0; display: flex;">
+            <img src="/favicon.svg" height="32px">
+            <h1>Stormworks Tools</h1>
+        </a>
+        <nav aria-label="Shape tool"><a href="index.html">Circles</a><a href="ellipse.html"
+                aria-current="page">Ellipses</a></nav><a href="https://www.desmos.com/calculator/bq8snnjuon"
+            target="_blank" rel="noopener">Original graph ↗</a>
+    </header>
+
+    <main>
+
+        <aside>
+
+            <div class="eyebrow">ELLIPSE SETTINGS</div>
+
+            <section class="dimension"><label for="shape-width">Width</label>
+                <div class="number-row"><input id="shape-width" type="number" min="1" max="100" step="1"
+                        value="26"><span id="shape-width-radius">Radius 13</span></div><input id="shape-width-range"
+                    aria-label="Width slider" type="range" min="1" max="100" step="1" value="26">
+                <div class="range-labels"><span>1 block</span><span>100 blocks</span></div>
+            </section>
+
+            <section class="dimension"><label for="shape-height">Height</label>
+                <div class="number-row"><input id="shape-height" type="number" min="1" max="100" step="1"
+                        value="14"><span id="shape-height-radius">Radius 7</span></div><input id="shape-height-range"
+                    aria-label="Height slider" type="range" min="1" max="100" step="1" value="14">
+                <div class="range-labels"><span>1 block</span><span>100 blocks</span></div>
+            </section>
+
+            <section><label for="weight">Block weight <output id="weight-value">1.00</output></label><input id="weight"
+                    type="range" min="1" max="5" step="0.01" value="1">
+                <div class="range-labels"><span>More blocks</span><span>More wedges</span></div>
+                <p>Higher weight penalizes flat blocks when choosing the next piece.</p>
+            </section>
+
+            <section><label for="margin">Joining margin <output id="margin-value">0.20</output></label><input
+                    id="margin" type="range" min="0" max="1" step="0.01" value="0.2">
+                <div class="range-labels"><span>0 blocks</span><span>1 block</span></div>
+                <p>Adjusts where the top and side sections meet.</p>
+            </section>
+
+            <section class="views">
+                <div class="eyebrow">VIEW</div><label><input id="grid" type="checkbox" checked> Block
+                    grid</label><label><input id="pieces" type="checkbox" checked> Individual
+                    pieces</label><label><input id="circle" type="checkbox" checked> Reference ellipse</label>
+            </section>
+
+            <button id="reset" class="reset">Reset settings</button>
+
+            <details>
+                <summary>How it works</summary>
+                <p>The top and side are solved independently using blocks and 1x1, 1x2, and 1x4 wedges. They meet near
+                    the point where the ellipse's slope is -1, then mirror into the full shape.</p>
+                <p>Set width and height equal for a circle. Drag the four handles to resize, or use the controls above.
+                </p>
+            </details>
+
+        </aside>
+        <div class="workspace">
+            <div id="plot" tabindex="0" role="img"
+                aria-label="Generated circle made of blocks and wedges. Drag to pan; use the mouse wheel or zoom buttons to zoom.">
+
+                <canvas id="canvas"></canvas>
+
+                <div class="zoom">
+                    <button id="minus" aria-label="Zoom out">-</button>
+                    <button id="fit">Fit</button>
+                    <button id="plus" aria-label="Zoom in">+</button>
+                </div>
+
+                <div class="plot-note">
+                    Drag handles to resize · Drag background to pan
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,494 @@
+:root {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #252536;
+    background: #f6f7fb;
+    font-size: 16px;
+    accent-color: #7050b5
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0
+}
+
+header {
+    height: 76px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border-bottom: 1px solid #e1e3ec
+}
+
+h1 {
+    font-size: 20px;
+    letter-spacing: -.6px;
+    margin: 0
+}
+
+h1 span {
+    font-weight: 400;
+    color: #626276
+}
+
+header a {
+    margin-left: auto;
+    color: #646477;
+    font-size: 14px;
+    text-decoration: none
+}
+
+header a:hover {
+    text-decoration: underline
+}
+
+main {
+    display: grid;
+    grid-template-columns: 310px minmax(0, 1fr);
+    height: calc(100dvh - 76px);
+    min-height: 600px
+}
+
+aside {
+    background: white;
+    border-right: 1px solid #e1e3ec;
+    padding: 30px 25px;
+    overflow: auto
+}
+
+.eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    color: #74758a
+}
+
+section {
+    padding: 28px 0;
+    border-bottom: 1px solid #ededf3
+}
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 14px;
+    gap: 10px
+}
+
+label span {
+    font-weight: 400;
+    color: #77788b
+}
+
+.number-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin: 14px 0 20px
+}
+
+.number-row input {
+    font-family: inherit;
+    font-size: 26px;
+    font-weight: 600;
+    width: 108px;
+    padding: 8px 12px;
+    border: 1px solid #d9d9e6;
+    border-radius: 7px;
+    color: #423260;
+    background: #faf9fd
+}
+
+.number-row span {
+    font-size: 14px;
+    color: #77788b
+}
+
+input[type=range] {
+    width: 100%;
+    margin: 16px 0 8px;
+    cursor: pointer
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #77788b
+}
+
+output {
+    background: #f0ebf9;
+    color: #634497;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-variant-numeric: tabular-nums
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #747487;
+    margin: 16px 0 0
+}
+
+.views {
+    display: grid;
+    gap: 16px
+}
+
+.views label {
+    justify-content: flex-start;
+    font-weight: 400
+}
+
+.views input {
+    width: 17px;
+    height: 17px;
+    margin: 0
+}
+
+.reset {
+    width: 100%;
+    margin: 22px 0;
+    background: white;
+    color: #565368;
+    border: 1px solid #dcdce6
+}
+
+button {
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 9px 14px
+}
+
+button:hover {
+    background: #f0ebf9
+}
+
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible,
+#plot:focus-visible {
+    outline: 3px solid #aa90de;
+    outline-offset: 3px
+}
+
+summary {
+    font-size: 14px;
+    cursor: pointer;
+    color: #646074
+}
+
+details p {
+    font-size: 13px
+}
+
+.workspace {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 32px 16px
+}
+
+.plot-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    gap: 16px
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -.6px;
+    margin: 8px 0 0
+}
+
+#plot {
+    position: relative;
+}
+
+#plot .zoom {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+}
+
+.zoom button {
+    border: 1px solid #dddde7;
+    background: white;
+    color: #57546b;
+    min-width: 37px
+}
+
+.zoom button:hover {
+    background: #eee9f6
+}
+
+#plot {
+    position: relative;
+    flex: 1;
+    min-height: 360px;
+    background: #fff;
+    border: 1px solid #dddfea;
+    border-radius: 12px;
+    overflow: hidden;
+    touch-action: none;
+    cursor: grab
+}
+
+#plot.dragging {
+    cursor: grabbing
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.plot-note {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #858597;
+    white-space: nowrap;
+    pointer-events: none;
+    background: #fffffff0;
+    padding: 6px 10px;
+    border-radius: 5px
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 0 0;
+    color: #77788b;
+    font-size: 12px
+}
+
+footer span {
+    display: flex;
+    align-items: center;
+    gap: 7px
+}
+
+.swatch {
+    width: 10px;
+    height: 10px;
+    background: #9276bf;
+    border: 1px solid #7050b5;
+    border-radius: 2px
+}
+
+@media(max-width:760px) {
+    header {
+        padding: 0 16px;
+        height: 66px
+    }
+
+    h1 {
+        font-size: 17px
+    }
+
+    header a {
+        font-size: 12px
+    }
+
+    main {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        min-height: 0
+    }
+
+    aside {
+        border-right: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 24px;
+        padding: 22px 20px
+    }
+
+    aside>.eyebrow {
+        grid-column: 1/-1
+    }
+
+    section {
+        padding: 20px 0
+    }
+
+    .views {
+        grid-column: 1/-1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px
+    }
+
+    .views .eyebrow {
+        width: 100%
+    }
+
+    .reset {
+        align-self: start
+    }
+
+    details {
+        padding-top: 24px
+    }
+
+    .workspace {
+        padding: 22px 16px 16px
+    }
+
+    #plot {
+        height: 65vh;
+        flex: auto;
+        min-height: 360px
+    }
+
+    .plot-heading {
+        margin-bottom: 16px
+    }
+
+    h2 {
+        font-size: 21px
+    }
+}
+
+@media(max-width:380px) {
+    header a {
+        max-width: 65px
+    }
+
+    .number-row {
+        gap: 8px
+    }
+
+    .number-row input {
+        width: 80px
+    }
+
+    footer {
+        font-size: 11px
+    }
+}
+
+header nav {
+    display: flex;
+    gap: 4px;
+    margin-left: 20px;
+    padding: 4px;
+    border-radius: 7px;
+    background: #f4f2f8
+}
+
+header nav a {
+    margin: 0;
+    padding: 7px 12px;
+    border-radius: 5px;
+    font-size: 14px
+}
+
+header nav a[aria-current=page] {
+    background: white;
+    color: #67479e;
+    box-shadow: 0 1px 4px #28203a12;
+    font-weight: 600
+}
+
+header nav a:hover {
+    text-decoration: none;
+    background: #eae4f4
+}
+
+.dimension {
+    padding: 20px 0
+}
+
+.dimension .number-row {
+    margin: 10px 0 0
+}
+
+.dimension input[type=range] {
+    margin-top: 10px
+}
+
+#plot.resizing {
+    cursor: ew-resize
+}
+
+#plot.resizing-vertical {
+    cursor: ns-resize
+}
+
+@media(max-width:760px) {
+    header {
+        height: auto;
+        min-height: 98px;
+        flex-wrap: wrap;
+        padding-top: 12px;
+        padding-bottom: 10px;
+        gap: 6px 10px
+    }
+
+    header nav {
+        order: 3;
+        width: 100%;
+        margin: 0;
+        background: none;
+        padding: 0
+    }
+
+    header nav a {
+        padding: 6px 12px
+    }
+
+    header nav a[aria-current=page] {
+        background: #eee8f8;
+        box-shadow: none
+    }
+
+    header>a {
+        margin-left: auto
+    }
+
+    main {
+        height: auto
+    }
+
+    body[data-mode=ellipse] aside {
+        gap: 0 20px
+    }
+
+    body[data-mode=ellipse] .dimension .number-row {
+        flex-wrap: wrap;
+        gap: 6px
+    }
+
+    body[data-mode=ellipse] .dimension .number-row span {
+        font-size: 12px
+    }
+
+    .plot-note {
+        max-width: 95%;
+        font-size: 11px;
+        white-space: normal;
+        text-align: center
+    }
+}

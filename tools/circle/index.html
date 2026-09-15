@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Stormworks Circle Tool</title>
+    <meta name="description" content="Build circles from blocks and wedges with adjustable diameter and block weight.">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="/"  style="margin:0; display: flex;">
+            <img src="/favicon.svg" height="32px">
+            <h1>Stormworks Tools</h1>
+        </a>
+        <nav aria-label="Shape tool"><a href="index.html" aria-current="page">Circles</a><a
+                href="ellipse.html">Ellipses</a></nav><a href="https://www.desmos.com/calculator/8tix6ufahm"
+            target="_blank" rel="noopener">Original graph ↗</a>
+    </header>
+    <main>
+        <aside>
+            <div class="eyebrow">CIRCLE SETTINGS</div>
+            <section><label for="diameter">Diameter</label>
+                <div class="number-row"><input id="diameter" type="number" min="1" max="100" step="1" value="24"><span
+                        id="radius">Radius 12</span></div><input id="diameter-range" aria-label="Diameter slider"
+                    type="range" min="1" max="100" step="1" value="24">
+                <div class="range-labels"><span>1 block</span><span>100 blocks</span></div>
+            </section>
+            <section><label for="weight">Block weight <output id="weight-value">2.00</output></label><input id="weight"
+                    type="range" min="0.2" max="10" step="0.01" value="2">
+                <div class="range-labels"><span>More blocks</span><span>More wedges</span></div>
+                <p>Higher weight penalizes flat blocks when choosing the next piece.</p>
+            </section>
+            <section class="views">
+                <div class="eyebrow">VIEW</div><label><input id="grid" type="checkbox" checked> Block
+                    grid</label><label><input id="pieces" type="checkbox" checked> Individual
+                    pieces</label><label><input id="circle" type="checkbox" checked> Reference circle</label>
+            </section>
+            <button id="reset" class="reset">Reset settings</button>
+            <details>
+                <summary>How it works</summary>
+                <p>Drag any of the four handles to change the diameter. The shape stays circular, and the diameter
+                    controls update as you drag.</p>
+                <p>Starting at the top, each step compares a block, 1x1, 1x2, and 1x4 wedge by their mean squared error
+                    against the circle. The chosen section is mirrored to form the full shape.</p>
+            </details>
+        </aside>
+        <div class="workspace">
+            <div id="plot" tabindex="0" role="img"
+                aria-label="Generated circle made of blocks and wedges. Drag to pan; use the mouse wheel or zoom buttons to zoom.">
+
+                <canvas id="canvas"></canvas>
+
+                <div class="zoom">
+                    <button id="minus" aria-label="Zoom out">-</button>
+                    <button id="fit">Fit</button>
+                    <button id="plus" aria-label="Zoom in">+</button>
+                </div>
+
+                <div class="plot-note">
+                    Drag handles to resize · Drag background to pan
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
