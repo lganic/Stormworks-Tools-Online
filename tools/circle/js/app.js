@@ -442,10 +442,10 @@ if (typeof document !== 'undefined') {
     $('pieces').onchange = draw;
     $('circle').onchange = draw;
 
-    $('wedge1').onchange = draw;
-    $('wedge2').onchange = draw;
-    $('wedge3').onchange = draw;
-    $('wedge4').onchange = draw;
+    $('wedge1').onchange = sync;
+    $('wedge2').onchange = sync;
+    $('wedge3').onchange = sync;
+    $('wedge4').onchange = sync;
 
     // Function to increment, or decrement the zoom based on a set factor
     function changeZoom(factor, x = width / 2, y = height / 2) {
