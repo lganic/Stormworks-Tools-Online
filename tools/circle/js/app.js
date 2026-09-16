@@ -1,5 +1,8 @@
 'use strict';
 
+// Lookup util
+const $ = id => document.getElementById(id)
+
 // Fix zoom buttons propagating their events to the root plot.
 const zoomControls = document.querySelector(".zoom");
 
@@ -30,37 +33,42 @@ function generate(diameter, weight) {
 
     const r = diameter / 2;
     const stop = r * Math.SQRT1_2 + .2;
-    const widths = [1, 1, 2, 4];
+    const lengths = [1]; // Base block
+
+    if ($('wedge1').checked) lengths.push(1); // Add 1 x 1 wedge
+    if ($('wedge2').checked) lengths.push(2); // Add 1 x 2 wedge
+    if ($('wedge3').checked) lengths.push(3); // Add 1 x 3 wedge
+    if ($('wedge4').checked) lengths.push(4); // Add 1 x 4 wedge
 
     // Update the current position based on the type of wedge. 0 = block, 1 = 1x1 wedge, 2 = 1x2 wedge, 3 = 1x3 wedge.
     function update(p, wedge_type) {
-        let dx;
 
-        if (wedge_type === 0 || wedge_type === 1)
-            dx = 1;
-        else if (wedge_type === 2)
-            dx = 2;
-        else
-            dx = 4;
+        let dx = lengths[wedge_type];
+        let dy = -1;
 
-        let dy = wedge_type === 0 ? 0 : -1;
+        if (wedge_type === 0) dy = 0; // Is block. Doesnt go down.
 
         return [p[0] + dx, p[1] + dy];
     }
 
     function best(p) {
-        const e = widths.map((w, i) => (p[0] <= r - w ? integratedError(p, w, i === 0 ? 0 : 1, r) : 99999) * (i === 0 ? weight : 1) / w);
 
-        if (e[0] < Math.min(e[1], e[2], e[3])) {
-            return 0;
+        const e = [];
+
+        for (let block_type = 0; block_type < lengths.length; block_type++) {
+
+            let error = 99999;
+
+            if (p[0] <= r - lengths[block_type]) error = integratedError(p, lengths[block_type], block_type === 0 ? 0 : 1, r);
+
+            error *= (block_type === 0 ? weight : 1);
+
+            error /= lengths[block_type];
+
+            e.push(error);
         }
-        if (e[1] < Math.min(e[2], e[3])) {
-            return 1;
-        }
-        if (e[2] < e[3]) {
-            return 2;
-        }
-        return 3;
+
+        return e.indexOf(Math.min(...e)); // Return lowest error solution.
     }
 
     let p = [diameter % 2 / 2, r]; // Make the starting point.
@@ -111,37 +119,41 @@ function generateEllipse(width, height, weight = 1, margin = .2) {
 
         const stop = a * a / Math.hypot(a, b) + margin
         const points = []
-        const lengths = [1, 1, 2, 4];
+        const lengths = [1]; // Base block
+
+        if ($('wedge1').checked) lengths.push(1); // Add 1 x 1 wedge
+        if ($('wedge2').checked) lengths.push(2); // Add 1 x 2 wedge
+        if ($('wedge3').checked) lengths.push(3); // Add 1 x 3 wedge
+        if ($('wedge4').checked) lengths.push(4); // Add 1 x 4 wedge
 
         // Update the current position based on the type of wedge. 0 = block, 1 = 1x1 wedge, 2 = 1x2 wedge, 3 = 1x3 wedge.
         function update(p, wedge_type) {
-            let dx;
 
-            if (wedge_type === 0 || wedge_type === 1)
-                dx = 1;
-            else if (wedge_type === 2)
-                dx = 2;
-            else
-                dx = 4;
+            let dx = lengths[wedge_type];
+            let dy = -1;
 
-            let dy = wedge_type === 0 ? 0 : -1;
+            if (wedge_type === 0) dy = 0; // Is block. Doesnt go down.
 
             return [p[0] + dx, p[1] + dy];
         }
 
         function best(p) {
-            const e = lengths.map((len, i) => (p[0] <= a - len ? ellipseError(p, len, i === 0 ? 0 : 1, a, b) : 99999) * (i === 0 ? weight : 1) / len);
+            const e = [];
 
-            if (e[0] < Math.min(e[1], e[2], e[3])) {
-                return 0;
+            for (let block_type = 0; block_type < lengths.length; block_type ++){
+
+                let error = 99999;
+
+                if (p[0] <= a - lengths[block_type]) error = ellipseError(p, lengths[block_type], block_type === 0 ? 0 : 1, a, b);
+
+                error *= (block_type === 0 ? weight : 1);
+
+                error /= lengths[block_type];
+
+                e.push(error);
             }
-            if (e[1] < Math.min(e[2], e[3])) {
-                return 1;
-            }
-            if (e[2] < e[3]) {
-                return 2;
-            }
-            return 3;
+
+            return e.indexOf(Math.min(...e)); // Return lowest error solution.
         }
 
         let p = [initial, b];
@@ -182,9 +194,6 @@ if (typeof module !== 'undefined') module.exports = { generate, integratedError,
 
 
 if (typeof document !== 'undefined') {
-
-    // Lookup util
-    const $ = id => document.getElementById(id)
 
     // Get elements from page.
     const canvas = $('canvas')
@@ -441,6 +450,11 @@ if (typeof document !== 'undefined') {
     $('grid').onchange = draw;
     $('pieces').onchange = draw;
     $('circle').onchange = draw;
+
+    $('wedge1').onchange = sync;
+    $('wedge2').onchange = sync;
+    $('wedge3').onchange = sync;
+    $('wedge4').onchange = sync;
 
     // Function to increment, or decrement the zoom based on a set factor
     function changeZoom(factor, x = width / 2, y = height / 2) {

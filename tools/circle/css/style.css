@@ -154,6 +154,22 @@ p {
     margin: 0
 }
 
+.enabled_pieces {
+    display: grid;
+    gap: 16px
+}
+
+.enabled_pieces label {
+    justify-content: flex-start;
+    font-weight: 400
+}
+
+.enabled_pieces input {
+    width: 17px;
+    height: 17px;
+    margin: 0
+}
+
 .reset {
     width: 100%;
     margin: 22px 0;
