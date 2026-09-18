@@ -86,6 +86,31 @@ function generate(diameter, weight) {
         p = next;
     }
 
+    if ($('convexity').checked) {
+        // Check for adjacent points to be checked. (Thanks CoconudHotpocket for the idea.)
+
+        for (let i = 1; i < points.length - 1; i ++) {
+
+            const point_1 = points[i - 1];
+            const point_2 = points[i];
+            const point_3 = points[i + 1];
+
+            // Ignore blocks.
+            if ((point_2[1] - point_1[1]) == 0) continue;
+            if ((point_3[1] - point_2[1]) == 0) continue;
+
+            const dx1 = point_2[0] - point_1[0];
+            const dx2 = point_3[0] - point_2[0];
+
+            // Check for a larger jump in the next block.
+            if (dx2 > dx1) {
+                // We should make a swap.
+                points[i][0] = point_1[0] + dx2;
+            }
+
+        }
+    }
+
     // Transpose points to make the corner.
     const corner = points.concat(points.map(p => [p[1], p[0]]).reverse());
 
@@ -455,6 +480,8 @@ if (typeof document !== 'undefined') {
     $('wedge2').onchange = sync;
     $('wedge3').onchange = sync;
     $('wedge4').onchange = sync;
+
+    $('convexity').onchange = sync;
 
     // Function to increment, or decrement the zoom based on a set factor
     function changeZoom(factor, x = width / 2, y = height / 2) {
