@@ -197,6 +197,32 @@ function generateEllipse(width, height, weight = 1, margin = .2) {
 
             p = next;
         }
+
+        if ($('convexity').checked) {
+            // Check for adjacent points to be checked. (Thanks CoconudHotpocket for the idea.)
+
+            for (let i = 1; i < points.length - 1; i ++) {
+
+                const point_1 = points[i - 1];
+                const point_2 = points[i];
+                const point_3 = points[i + 1];
+
+                // Ignore blocks.
+                if ((point_2[1] - point_1[1]) == 0) continue;
+                if ((point_3[1] - point_2[1]) == 0) continue;
+
+                const dx1 = point_2[0] - point_1[0];
+                const dx2 = point_3[0] - point_2[0];
+
+                // Check for a larger jump in the next block.
+                if (dx2 > dx1) {
+                    // We should make a swap.
+                    points[i][0] = point_1[0] + dx2;
+                }
+
+            }
+        }
+
         return points;
     }
 
