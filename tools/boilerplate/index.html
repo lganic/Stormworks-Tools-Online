@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Stormworks Tool</title>
+    <meta name="description" content="Description of this tool.">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="/" style="margin:0; display: flex;">
+            <img src="/favicon.svg" height="32px">
+            <h1>Stormworks Tools</h1>
+        </a>
+    </header>
+    <main>
+        <aside>
+            <div class="eyebrow">TOOL SETTINGS</div>
+
+            <section><label for="example">Example value</label>
+                <div class="number-row"><input id="example" type="number" min="1" max="100" step="1" value="10"></div>
+                <input id="example-range" aria-label="Example slider" type="range" min="1" max="100" step="1"
+                    value="10">
+                <div class="range-labels"><span>1</span><span>100</span></div>
+            </section>
+
+            <button id="reset" class="reset">Reset settings</button>
+        </aside>
+        <div class="workspace">
+            <div id="plot" tabindex="0" role="img" aria-label="Tool output area.">
+
+                <canvas id="canvas"></canvas>
+
+                <div class="zoom">
+                    <button id="minus" aria-label="Zoom out">-</button>
+                    <button id="fit">Fit</button>
+                    <button id="plus" aria-label="Zoom in">+</button>
+                </div>
+
+                <div class="plot-note">
+                    Drag handles to resize · Drag background to pan
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
