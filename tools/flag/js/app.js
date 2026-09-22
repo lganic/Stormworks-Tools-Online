@@ -267,6 +267,7 @@ function updateFlagList() {
     for (const [key, pixels] of Object.entries(things_to_overwrite)) {
         const row = document.createElement('div');
         row.className = 'export-item';
+        row.classList.add('export-tools')
 
         const label = document.createElement('span');
         label.textContent = (flagNames[key] ?? `Flag ${key}`) + "    ";
