@@ -1,0 +1,20 @@
+/*
+ * Flag editor tool specific styles.
+ */
+
+.exports-tools {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.export-tools button {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d9d9e6;
+    background: #faf9fd;
+    color: #565368;
+    font-weight: 600;
+    font-size: 13px
+}

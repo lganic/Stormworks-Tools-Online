@@ -1,0 +1,144 @@
+/*
+ * Shared pixel editor styles (tool buttons, color palette, editor actions).
+ * Pairs with /js/pixel-editor.js. Individual tools add their own
+ * css/style.css for anything page specific.
+ */
+
+.tools {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px
+}
+
+.tools button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d9d9e6;
+    background: #faf9fd;
+    color: #565368;
+    font-weight: 600;
+    font-size: 13px
+}
+
+.tools button.active {
+    background: #7050b5;
+    border-color: #7050b5;
+    color: white
+}
+
+.editor-actions {
+    display: flex;
+    gap: 8px
+}
+
+.editor-actions button {
+    flex: 1;
+    border: 1px solid #d9d9e6;
+    background: #faf9fd;
+    color: #565368;
+    font-size: 13px
+}
+
+.editor-actions button:disabled {
+    opacity: .45;
+    cursor: default
+}
+
+.editor-actions button:disabled:hover {
+    background: #faf9fd
+}
+
+.palette {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px
+}
+
+.palette .swatch {
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0;
+    border-radius: 6px;
+    border: 1px solid #d9d9e6;
+    box-shadow: none
+}
+
+.palette .swatch.active {
+    outline: 2px solid #7050b5;
+    outline-offset: 2px
+}
+
+.palette .swatch.transparent {
+    background-image:
+        linear-gradient(45deg, #d7d7e2 25%, transparent 25%),
+        linear-gradient(-45deg, #d7d7e2 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #d7d7e2 75%),
+        linear-gradient(-45deg, transparent 75%, #d7d7e2 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 0 4px, 4px -4px, -4px 0
+}
+
+.custom-color-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #565368
+}
+
+.custom-color-row input[type=color] {
+    width: 36px;
+    height: 28px;
+    padding: 0;
+    border: 1px solid #d9d9e6;
+    border-radius: 5px;
+    background: none;
+    cursor: pointer
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .tools button,
+    .editor-actions button {
+        background: #27242e;
+        border-color: #484451;
+        color: #d4d0dc
+    }
+
+    .tools button.active {
+        background: #7a67cc;
+        border-color: #7a67cc;
+        color: white
+    }
+
+    .editor-actions button:disabled:hover {
+        background: #27242e
+    }
+
+    .palette .swatch {
+        border-color: #484451
+    }
+
+    .palette .swatch.transparent {
+        background-color: #211f27;
+        background-image:
+            linear-gradient(45deg, #3a3744 25%, transparent 25%),
+            linear-gradient(-45deg, #3a3744 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, #3a3744 75%),
+            linear-gradient(-45deg, transparent 75%, #3a3744 75%)
+    }
+
+    .palette .swatch.active {
+        outline-color: #b99ae9
+    }
+
+    .custom-color-row {
+        color: #aaa6b5
+    }
+
+    .custom-color-row input[type=color] {
+        border-color: #484451
+    }
+}

@@ -1,0 +1,2090 @@
+
+<dialog id="flag_dialog_placeholder">
+    <style>
+        #flag_dialog_placeholder {
+            width: min(850px, calc(100vw - 32px));
+            max-height: 85vh;
+            box-sizing: border-box;
+            padding: 24px;
+            border: 1px solid #444;
+            border-radius: 14px;
+            background: #202127;
+            color: #eee;
+            font-family: system-ui, sans-serif;
+        }
+
+        #flag_dialog_placeholder::backdrop {
+            background: rgb(0 0 0 / 65%);
+        }
+
+        #flag_dialog_placeholder h2 {
+            margin: 0 0 8px;
+        }
+
+        #flag_dialog_placeholder .flag-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 8px;
+        }
+
+        #flag_dialog_placeholder button {
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+            border: 1px solid #555;
+            border-radius: 8px;
+            background: #303139;
+            padding: 10px;
+        }
+
+        #flag_dialog_placeholder .flag-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        #flag_dialog_placeholder .flag-option:hover {
+            background: #40414b;
+        }
+
+        #flag_dialog_placeholder .flag-option[aria-pressed="true"] {
+            border-color: #b99aff;
+            background: #493762;
+        }
+
+        #flag_dialog_placeholder button:focus-visible {
+            outline: 2px solid #b99aff;
+            outline-offset: 2px;
+        }
+
+        #flag_dialog_placeholder img {
+            image-rendering: pixelated;
+            object-fit: contain;
+        }
+
+        #flag_dialog_placeholder .flag-option img {
+            width: 96px;
+            height: 48px;
+        }
+
+        #flag_dialog_placeholder .flag-footer {
+            position: sticky;
+            bottom: -24px;
+            background: #202127;
+            border-top: 1px solid #555;
+            margin-top: 24px;
+            padding: 16px 0;
+        }
+
+        #flag_dialog_placeholder .flag-preview img {
+            width: 192px;
+            height: 96px;
+        }
+
+        #flag_dialog_placeholder .flag-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        #flag_dialog_placeholder button:disabled {
+            opacity: .45;
+            cursor: default;
+        }
+    </style>
+
+    <h2 id="flag-dialog-title">Choose a flag to overwrite</h2>
+    <p>Your custom flag will replace the selected flag.</p>
+
+    
+    <section class="flag-category">
+        <h3>Color</h3>
+        <div class="flag-grid">
+            <button
+                type="button"
+                class="flag-option"
+                data-index="8"
+                data-name="White"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/8.png" alt="" loading="lazy">
+                <span>White</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="9"
+                data-name="Gray"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/9.png" alt="" loading="lazy">
+                <span>Gray</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="210"
+                data-name="Light Gray"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/210.png" alt="" loading="lazy">
+                <span>Light Gray</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="211"
+                data-name="Dark Brown"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/211.png" alt="" loading="lazy">
+                <span>Dark Brown</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="212"
+                data-name="Light Brown"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/212.png" alt="" loading="lazy">
+                <span>Light Brown</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="213"
+                data-name="Orange"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/213.png" alt="" loading="lazy">
+                <span>Orange</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="214"
+                data-name="Yellow"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/214.png" alt="" loading="lazy">
+                <span>Yellow</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="215"
+                data-name="Dark Green"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/215.png" alt="" loading="lazy">
+                <span>Dark Green</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="224"
+                data-name="Light Green"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/224.png" alt="" loading="lazy">
+                <span>Light Green</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="225"
+                data-name="Blue Green"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/225.png" alt="" loading="lazy">
+                <span>Blue Green</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="226"
+                data-name="Light Blue"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/226.png" alt="" loading="lazy">
+                <span>Light Blue</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="227"
+                data-name="Blue"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/227.png" alt="" loading="lazy">
+                <span>Blue</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="228"
+                data-name="Magenta"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/228.png" alt="" loading="lazy">
+                <span>Magenta</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="229"
+                data-name="Pink"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/229.png" alt="" loading="lazy">
+                <span>Pink</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="230"
+                data-name="Dark Red"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/230.png" alt="" loading="lazy">
+                <span>Dark Red</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="231"
+                data-name="Red"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/231.png" alt="" loading="lazy">
+                <span>Red</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="240"
+                data-name="Ocean Blue"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/240.png" alt="" loading="lazy">
+                <span>Ocean Blue</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="241"
+                data-name="Purple"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/241.png" alt="" loading="lazy">
+                <span>Purple</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="242"
+                data-name="Navy Blue"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/242.png" alt="" loading="lazy">
+                <span>Navy Blue</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="243"
+                data-name="Forest Green"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/243.png" alt="" loading="lazy">
+                <span>Forest Green</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="244"
+                data-name="Light Orange"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/244.png" alt="" loading="lazy">
+                <span>Light Orange</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="245"
+                data-name="Light Red"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/245.png" alt="" loading="lazy">
+                <span>Light Red</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="246"
+                data-name="Black"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/246.png" alt="" loading="lazy">
+                <span>Black</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="247"
+                data-name="Medium Gray"
+                data-category="color"
+                aria-pressed="false"
+            >
+                <img src="flag_output/color/247.png" alt="" loading="lazy">
+                <span>Medium Gray</span>
+            </button>
+        </div>
+    </section>
+    
+
+    <section class="flag-category">
+        <h3>Shipping</h3>
+        <div class="flag-grid">
+            <button
+                type="button"
+                class="flag-option"
+                data-index="56"
+                data-name="UNO"
+                data-category="shipping"
+                aria-pressed="false"
+            >
+                <img src="flag_output/shipping/56.png" alt="" loading="lazy">
+                <span>UNO</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="57"
+                data-name="MCRO"
+                data-category="shipping"
+                aria-pressed="false"
+            >
+                <img src="flag_output/shipping/57.png" alt="" loading="lazy">
+                <span>MCRO</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="58"
+                data-name="LOCKI"
+                data-category="shipping"
+                aria-pressed="false"
+            >
+                <img src="flag_output/shipping/58.png" alt="" loading="lazy">
+                <span>LOCKI</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="59"
+                data-name="HOPE"
+                data-category="shipping"
+                aria-pressed="false"
+            >
+                <img src="flag_output/shipping/59.png" alt="" loading="lazy">
+                <span>HOPE</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="60"
+                data-name="BANDAO"
+                data-category="shipping"
+                aria-pressed="false"
+            >
+                <img src="flag_output/shipping/60.png" alt="" loading="lazy">
+                <span>BANDAO</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="61"
+                data-name="NEVERGREEN"
+                data-category="shipping"
+                aria-pressed="false"
+            >
+                <img src="flag_output/shipping/61.png" alt="" loading="lazy">
+                <span>NEVERGREEN</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="62"
+                data-name="CLAM OIL"
+                data-category="shipping"
+                aria-pressed="false"
+            >
+                <img src="flag_output/shipping/62.png" alt="" loading="lazy">
+                <span>CLAM OIL</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="63"
+                data-name="SPAM"
+                data-category="shipping"
+                aria-pressed="false"
+            >
+                <img src="flag_output/shipping/63.png" alt="" loading="lazy">
+                <span>SPAM</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="72"
+                data-name="OOPS"
+                data-category="shipping"
+                aria-pressed="false"
+            >
+                <img src="flag_output/shipping/72.png" alt="" loading="lazy">
+                <span>OOPS</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="73"
+                data-name="ACRES"
+                data-category="shipping"
+                aria-pressed="false"
+            >
+                <img src="flag_output/shipping/73.png" alt="" loading="lazy">
+                <span>ACRES</span>
+            </button>
+        </div>
+    </section>
+    
+
+    <section class="flag-category">
+        <h3>Community</h3>
+        <div class="flag-grid">
+            <button
+                type="button"
+                class="flag-option"
+                data-index="10"
+                data-name="Stormworks"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/10.png" alt="" loading="lazy">
+                <span>Stormworks</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="11"
+                data-name="Geometa"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/11.png" alt="" loading="lazy">
+                <span>Geometa</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="12"
+                data-name="Carrier Command 2"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/12.png" alt="" loading="lazy">
+                <span>Carrier Command 2</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="13"
+                data-name="GQ Games"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/13.png" alt="" loading="lazy">
+                <span>GQ Games</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="14"
+                data-name="Frantic"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/14.png" alt="" loading="lazy">
+                <span>Frantic</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="15"
+                data-name="CG Games"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/15.png" alt="" loading="lazy">
+                <span>CG Games</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="24"
+                data-name="Lynx Highland"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/24.png" alt="" loading="lazy">
+                <span>Lynx Highland</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="25"
+                data-name="ND Gaming"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/25.png" alt="" loading="lazy">
+                <span>ND Gaming</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="26"
+                data-name="Raptor"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/26.png" alt="" loading="lazy">
+                <span>Raptor</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="27"
+                data-name="Camodo Gaming"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/27.png" alt="" loading="lazy">
+                <span>Camodo Gaming</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="28"
+                data-name="Rubber Duck"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/28.png" alt="" loading="lazy">
+                <span>Rubber Duck</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="29"
+                data-name="454SS"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/29.png" alt="" loading="lazy">
+                <span>454SS</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="30"
+                data-name="Neotastic"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/30.png" alt="" loading="lazy">
+                <span>Neotastic</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="31"
+                data-name="ProfNCognito"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/31.png" alt="" loading="lazy">
+                <span>ProfNCognito</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="40"
+                data-name="Beautiful OB"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/40.png" alt="" loading="lazy">
+                <span>Beautiful OB</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="41"
+                data-name="Captain Cockerels"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/41.png" alt="" loading="lazy">
+                <span>Captain Cockerels</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="42"
+                data-name="Basil"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/42.png" alt="" loading="lazy">
+                <span>Basil</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="43"
+                data-name="Boat"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/43.png" alt="" loading="lazy">
+                <span>Boat</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="44"
+                data-name="Plane"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/44.png" alt="" loading="lazy">
+                <span>Plane</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="45"
+                data-name="Skill Issue"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/45.png" alt="" loading="lazy">
+                <span>Skill Issue</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="46"
+                data-name="Pipe"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/46.png" alt="" loading="lazy">
+                <span>Pipe</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="47"
+                data-name="Jolly Roger"
+                data-category="community"
+                aria-pressed="false"
+            >
+                <img src="flag_output/community/47.png" alt="" loading="lazy">
+                <span>Jolly Roger</span>
+            </button>
+        </div>
+    </section>
+    
+
+    <section class="flag-category">
+        <h3>Nation</h3>
+        <div class="flag-grid">
+            <button
+                type="button"
+                class="flag-option"
+                data-index="0"
+                data-name="UK"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/0.png" alt="" loading="lazy">
+                <span>UK</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="1"
+                data-name="Scotland"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/1.png" alt="" loading="lazy">
+                <span>Scotland</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="2"
+                data-name="USA"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/2.png" alt="" loading="lazy">
+                <span>USA</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="3"
+                data-name="Russia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/3.png" alt="" loading="lazy">
+                <span>Russia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="4"
+                data-name="Australia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/4.png" alt="" loading="lazy">
+                <span>Australia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="5"
+                data-name="Norway"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/5.png" alt="" loading="lazy">
+                <span>Norway</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="6"
+                data-name="Poland"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/6.png" alt="" loading="lazy">
+                <span>Poland</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="7"
+                data-name="France"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/7.png" alt="" loading="lazy">
+                <span>France</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="16"
+                data-name="Germany"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/16.png" alt="" loading="lazy">
+                <span>Germany</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="17"
+                data-name="Hungary"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/17.png" alt="" loading="lazy">
+                <span>Hungary</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="18"
+                data-name="Canada"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/18.png" alt="" loading="lazy">
+                <span>Canada</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="19"
+                data-name="Japan"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/19.png" alt="" loading="lazy">
+                <span>Japan</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="20"
+                data-name="Ukraine"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/20.png" alt="" loading="lazy">
+                <span>Ukraine</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="21"
+                data-name="Sweden"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/21.png" alt="" loading="lazy">
+                <span>Sweden</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="22"
+                data-name="Dutch"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/22.png" alt="" loading="lazy">
+                <span>Dutch</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="23"
+                data-name="Mexico"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/23.png" alt="" loading="lazy">
+                <span>Mexico</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="32"
+                data-name="Italy"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/32.png" alt="" loading="lazy">
+                <span>Italy</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="33"
+                data-name="Argentina"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/33.png" alt="" loading="lazy">
+                <span>Argentina</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="34"
+                data-name="Spain"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/34.png" alt="" loading="lazy">
+                <span>Spain</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="35"
+                data-name="Luxembourg"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/35.png" alt="" loading="lazy">
+                <span>Luxembourg</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="36"
+                data-name="Austria"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/36.png" alt="" loading="lazy">
+                <span>Austria</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="37"
+                data-name="Denmark"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/37.png" alt="" loading="lazy">
+                <span>Denmark</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="38"
+                data-name="AzerBaijan"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/38.png" alt="" loading="lazy">
+                <span>AzerBaijan</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="39"
+                data-name="Belarus"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/39.png" alt="" loading="lazy">
+                <span>Belarus</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="48"
+                data-name="Belgium"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/48.png" alt="" loading="lazy">
+                <span>Belgium</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="49"
+                data-name="Bosnia and Herzegovina"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/49.png" alt="" loading="lazy">
+                <span>Bosnia and Herzegovina</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="50"
+                data-name="Brazil"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/50.png" alt="" loading="lazy">
+                <span>Brazil</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="51"
+                data-name="Bulgaria"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/51.png" alt="" loading="lazy">
+                <span>Bulgaria</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="52"
+                data-name="China"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/52.png" alt="" loading="lazy">
+                <span>China</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="53"
+                data-name="Columbia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/53.png" alt="" loading="lazy">
+                <span>Columbia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="54"
+                data-name="Czech Republic"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/54.png" alt="" loading="lazy">
+                <span>Czech Republic</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="55"
+                data-name="Europe"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/55.png" alt="" loading="lazy">
+                <span>Europe</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="64"
+                data-name="Finland"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/64.png" alt="" loading="lazy">
+                <span>Finland</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="65"
+                data-name="Greece"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/65.png" alt="" loading="lazy">
+                <span>Greece</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="66"
+                data-name="India"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/66.png" alt="" loading="lazy">
+                <span>India</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="67"
+                data-name="Monaco"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/67.png" alt="" loading="lazy">
+                <span>Monaco</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="68"
+                data-name="Iran"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/68.png" alt="" loading="lazy">
+                <span>Iran</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="69"
+                data-name="Ireland"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/69.png" alt="" loading="lazy">
+                <span>Ireland</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="70"
+                data-name="Israel"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/70.png" alt="" loading="lazy">
+                <span>Israel</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="71"
+                data-name="Malaysia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/71.png" alt="" loading="lazy">
+                <span>Malaysia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="80"
+                data-name="Portugal"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/80.png" alt="" loading="lazy">
+                <span>Portugal</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="81"
+                data-name="Romania"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/81.png" alt="" loading="lazy">
+                <span>Romania</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="82"
+                data-name="Saudi Arabia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/82.png" alt="" loading="lazy">
+                <span>Saudi Arabia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="83"
+                data-name="Singapore"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/83.png" alt="" loading="lazy">
+                <span>Singapore</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="84"
+                data-name="South Africa"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/84.png" alt="" loading="lazy">
+                <span>South Africa</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="85"
+                data-name="South Korea"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/85.png" alt="" loading="lazy">
+                <span>South Korea</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="86"
+                data-name="Switzerland"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/86.png" alt="" loading="lazy">
+                <span>Switzerland</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="87"
+                data-name="Thailand"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/87.png" alt="" loading="lazy">
+                <span>Thailand</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="96"
+                data-name="Turkey"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/96.png" alt="" loading="lazy">
+                <span>Turkey</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="97"
+                data-name="Venezuela"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/97.png" alt="" loading="lazy">
+                <span>Venezuela</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="98"
+                data-name="Afghanistan"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/98.png" alt="" loading="lazy">
+                <span>Afghanistan</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="99"
+                data-name="Albania"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/99.png" alt="" loading="lazy">
+                <span>Albania</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="100"
+                data-name="Algeria"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/100.png" alt="" loading="lazy">
+                <span>Algeria</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="101"
+                data-name="Antarctica"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/101.png" alt="" loading="lazy">
+                <span>Antarctica</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="102"
+                data-name="Bangladesh"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/102.png" alt="" loading="lazy">
+                <span>Bangladesh</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="103"
+                data-name="Greenland"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/103.png" alt="" loading="lazy">
+                <span>Greenland</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="112"
+                data-name="Jamaica"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/112.png" alt="" loading="lazy">
+                <span>Jamaica</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="113"
+                data-name="Kenya"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/113.png" alt="" loading="lazy">
+                <span>Kenya</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="114"
+                data-name="Lithuania"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/114.png" alt="" loading="lazy">
+                <span>Lithuania</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="115"
+                data-name="Chile"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/115.png" alt="" loading="lazy">
+                <span>Chile</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="116"
+                data-name="Iceland"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/116.png" alt="" loading="lazy">
+                <span>Iceland</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="117"
+                data-name="Egypt"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/117.png" alt="" loading="lazy">
+                <span>Egypt</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="118"
+                data-name="Slovakia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/118.png" alt="" loading="lazy">
+                <span>Slovakia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="119"
+                data-name="Serbia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/119.png" alt="" loading="lazy">
+                <span>Serbia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="128"
+                data-name="Estonia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/128.png" alt="" loading="lazy">
+                <span>Estonia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="129"
+                data-name="Latvia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/129.png" alt="" loading="lazy">
+                <span>Latvia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="130"
+                data-name="Uruguay"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/130.png" alt="" loading="lazy">
+                <span>Uruguay</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="131"
+                data-name="Zimbabwe"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/131.png" alt="" loading="lazy">
+                <span>Zimbabwe</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="132"
+                data-name="Morocco"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/132.png" alt="" loading="lazy">
+                <span>Morocco</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="133"
+                data-name="Ecuador"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/133.png" alt="" loading="lazy">
+                <span>Ecuador</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="134"
+                data-name="Senegal"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/134.png" alt="" loading="lazy">
+                <span>Senegal</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="135"
+                data-name="England"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/135.png" alt="" loading="lazy">
+                <span>England</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="144"
+                data-name="Wales"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/144.png" alt="" loading="lazy">
+                <span>Wales</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="145"
+                data-name="Tunisia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/145.png" alt="" loading="lazy">
+                <span>Tunisia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="146"
+                data-name="Croatia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/146.png" alt="" loading="lazy">
+                <span>Croatia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="147"
+                data-name="Ghana"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/147.png" alt="" loading="lazy">
+                <span>Ghana</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="148"
+                data-name="Cameroon"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/148.png" alt="" loading="lazy">
+                <span>Cameroon</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="149"
+                data-name="Tajikistan"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/149.png" alt="" loading="lazy">
+                <span>Tajikistan</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="150"
+                data-name="Philippines"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/150.png" alt="" loading="lazy">
+                <span>Philippines</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="151"
+                data-name="Vietnam"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/151.png" alt="" loading="lazy">
+                <span>Vietnam</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="160"
+                data-name="Kazakhstan"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/160.png" alt="" loading="lazy">
+                <span>Kazakhstan</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="161"
+                data-name="Mongolia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/161.png" alt="" loading="lazy">
+                <span>Mongolia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="162"
+                data-name="Nigeria"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/162.png" alt="" loading="lazy">
+                <span>Nigeria</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="163"
+                data-name="Ethiopia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/163.png" alt="" loading="lazy">
+                <span>Ethiopia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="164"
+                data-name="Pakistan"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/164.png" alt="" loading="lazy">
+                <span>Pakistan</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="165"
+                data-name="Angola"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/165.png" alt="" loading="lazy">
+                <span>Angola</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="166"
+                data-name="Georgia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/166.png" alt="" loading="lazy">
+                <span>Georgia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="167"
+                data-name="North Macedonia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/167.png" alt="" loading="lazy">
+                <span>North Macedonia</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="176"
+                data-name="New Zealand"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/176.png" alt="" loading="lazy">
+                <span>New Zealand</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="177"
+                data-name="Indonesia"
+                data-category="nation"
+                aria-pressed="false"
+            >
+                <img src="flag_output/nation/177.png" alt="" loading="lazy">
+                <span>Indonesia</span>
+            </button>
+        </div>
+    </section>
+    
+
+    <section class="flag-category">
+        <h3>Pride</h3>
+        <div class="flag-grid">
+            <button
+                type="button"
+                class="flag-option"
+                data-index="178"
+                data-name="Gender Queer"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/178.png" alt="" loading="lazy">
+                <span>Gender Queer</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="179"
+                data-name="Agender"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/179.png" alt="" loading="lazy">
+                <span>Agender</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="180"
+                data-name="Gay Male"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/180.png" alt="" loading="lazy">
+                <span>Gay Male</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="181"
+                data-name="Abrosexual"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/181.png" alt="" loading="lazy">
+                <span>Abrosexual</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="182"
+                data-name="Gay Female"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/182.png" alt="" loading="lazy">
+                <span>Gay Female</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="183"
+                data-name="Pansexual"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/183.png" alt="" loading="lazy">
+                <span>Pansexual</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="192"
+                data-name="Bisexual"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/192.png" alt="" loading="lazy">
+                <span>Bisexual</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="193"
+                data-name="Asexual"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/193.png" alt="" loading="lazy">
+                <span>Asexual</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="194"
+                data-name="Intersex"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/194.png" alt="" loading="lazy">
+                <span>Intersex</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="195"
+                data-name="Non-Binary"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/195.png" alt="" loading="lazy">
+                <span>Non-Binary</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="196"
+                data-name="Inclusive"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/196.png" alt="" loading="lazy">
+                <span>Inclusive</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="197"
+                data-name="Transgender"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/197.png" alt="" loading="lazy">
+                <span>Transgender</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="198"
+                data-name="PoC Pride"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/198.png" alt="" loading="lazy">
+                <span>PoC Pride</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="199"
+                data-name="Gay Pride"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/199.png" alt="" loading="lazy">
+                <span>Gay Pride</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="208"
+                data-name="Straight Ally"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/208.png" alt="" loading="lazy">
+                <span>Straight Ally</span>
+            </button>
+        
+            <button
+                type="button"
+                class="flag-option"
+                data-index="209"
+                data-name="Androgyne"
+                data-category="pride"
+                aria-pressed="false"
+            >
+                <img src="flag_output/pride/209.png" alt="" loading="lazy">
+                <span>Androgyne</span>
+            </button>
+        </div>
+    </section>
+    
+
+    <footer class="flag-footer">
+        <div class="flag-preview" hidden>
+            <p>Replacing: <strong class="flag-selected-name"></strong></p>
+            <img class="flag-selected-image" alt="">
+        </div>
+
+        <div class="flag-actions">
+            <button type="button" data-action="cancel">Cancel</button>
+            <button type="button" data-action="overwrite" disabled>
+                Overwrite selected flag
+            </button>
+        </div>
+    </footer>
+</dialog>
