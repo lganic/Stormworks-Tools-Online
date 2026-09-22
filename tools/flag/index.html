@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Stormworks Flag Editor</title>
+    <meta name="description" content="Import an image and paint it pixel by pixel using the shared editor toolkit.">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pixel-editor.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="/js/pixel-editor.js"></script>
+    <script defer src="/js/quantization.js"></script>
+    <script defer src="/js/txtr.js"></script>
+    <script defer src="js/app.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="/" style="margin:0; display: flex;">
+            <img src="/favicon.svg" height="32px">
+            <h1>Stormworks Tools</h1>
+        </a>
+    </header>
+    <main>
+        <aside>
+            <div class="eyebrow">IMPORT</div>
+         
+            <section><label for="imageInput">Input File</label>
+                <input type="file" id="imageInput" accept="image/*" name="Image File" size="18">
+
+                <dialog id="resizeModal" style="width: 850px;">
+                    <h2>Import Image</h2>
+
+                    <div>
+                        <img id="preview" style="width: 400px; height: 200px; display:inline-block">
+                        <canvas id="resample-preview" style="width: 400px; height: 200px; display:inline-block"></canvas>
+                    </div>
+
+                    <div>
+                        <h4 style="display:inline-block">Resampling:</h4>
+                        <select id="resampling" style="display: inline-block;">
+                            <option value="nearest">Nearest Neighbor</option>
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+
+                    <label for="example">Quantization</label>
+                        
+                    <div class="number-row">
+                        <input id="quantization_enabled" type="checkbox" style="height:30px" checked>
+                        <div id="hide_on_no_quantization" class="number-row">
+                            <input id="quantization" type="number" min="1" max="100" step="1" value="10">
+                            <input id="quantization-range" aria-label="Example slider" type="range" min="1" max="100" step="1" value="10">
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <button id="cancel">Cancel</button>
+                        <button id="import">Import</button>
+                    </div>
+                </dialog>
+
+                <dialog id="flag_dialog_placeholder"></dialog>
+
+                <script></script>
+            </section>
+
+            <div class="eyebrow">EXPORT</div>
+            <section class="tools" id="tools">
+            <button id="select-flag">Select Overwrite</button>
+            <button id="export_flags">Export</button>
+            </section>
+            <div class="eyebrow">OUTPUT</div>
+            <div id="export-area"></div>
+            <br>
+
+            <div class="eyebrow">TOOLS</div>
+            <section class="tools" id="tools">
+                <button type="button" data-tool="pencil">Pencil</button>
+                <button type="button" data-tool="line">Line</button>
+                <button type="button" data-tool="fill">Fill</button>
+                <button type="button" data-tool="pan">Pan</button>
+            </section>
+
+            <div class="eyebrow">COLOR</div>
+            <section>
+                <div class="palette" id="palette"></div>
+                <div class="custom-color-row">
+                    <input id="custom-color" type="color" value="#7050b5" aria-label="Custom color">
+                    <span>Pick a custom color</span>
+                </div>
+            </section>
+
+            <div class="eyebrow">EDIT</div>
+            <section class="editor-actions">
+                <button type="button" id="undo">Undo</button>
+                <button type="button" id="redo">Redo</button>
+                <button type="button" id="clear">Clear</button>
+            </section>
+        </aside>
+        <div class="workspace">
+            <div id="plot" tabindex="0" role="img"
+                aria-label="Pixel editor canvas. Paint with the pencil, line, or fill tool; pan with the pan tool, middle mouse button, or right mouse button.">
+
+                <canvas id="canvas"></canvas>
+
+                <div class="plot-note">
+                    P pencil · L line · F fill · H pan · Ctrl+Z undo
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
