@@ -61,7 +61,7 @@ class PixelEditor {
 
         this.color = PixelEditor.hexToRGBA(palette[0] || '#000000');
 
-        this.resizeGrid(width, height, { fill: [0, 0, 0, 0], preserve: false });
+        this.resizeGrid(width, height, { fill: [255, 255, 255, 255], preserve: false });
         this.buildPalette(palette);
         this.bindToolButtons();
         this.bindActions();
