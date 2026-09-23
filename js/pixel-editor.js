@@ -297,7 +297,7 @@ class PixelEditor {
         if (this.clearButton) {
             this.clearButton.onclick = () => {
                 this.pushUndo();
-                this.pixels.fill(0);
+                this.pixels.fill(255);
                 this.dirty = true;
                 this.emitChange();
                 this.draw();
