@@ -1,0 +1,45 @@
+
+/* This the the control CSS for the main index html page */
+
+
+.root_tools {
+
+    background-color: rgb(163, 163, 163);
+
+    width: calc((80vw + 16px) - mod((80vw + 16px), 316px) - 16px + 32px);
+    border-radius: 16px;
+
+    /* centering */
+    margin: 0 auto;
+}
+
+.root_tools h2 {
+
+    margin-left: 16px;
+    margin-top: 20px;
+
+    color: white;
+
+}
+
+
+.item_css {
+}
+
+.item_css h3 {
+    position: absolute;
+    text-align: center;
+    margin: 10px;
+    left: -10px;
+    top: 260px;
+    height: 30px;
+    line-height: 30px;
+    width: 300px;
+    background-color: rgba(200, 200, 200, .7);
+    border-radius: 0 0 10px 10px;
+}
+
+.item_css img {
+    border-radius: 10px;
+    width: 300px;
+}
