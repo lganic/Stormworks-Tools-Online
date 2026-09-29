@@ -75,7 +75,7 @@ class PixelEditor {
 
     // ---- grid / pixel data ----------------------------------------------
 
-    resizeGrid(width, height, { fill = [0, 0, 0, 0], preserve = true } = {}) {
+    resizeGrid(width, height, { fill = [255, 255, 255, 255], preserve = true } = {}) {
         width = Math.max(1, Math.round(width));
         height = Math.max(1, Math.round(height));
 
