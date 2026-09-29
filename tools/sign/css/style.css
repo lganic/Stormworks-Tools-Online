@@ -2,10 +2,16 @@
  * Flag editor tool specific styles.
  */
 
-.export-tools {
+ 
+ .export-tools {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
+}
+    
+.export-tools input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
 }
 
 .export-tools button {
