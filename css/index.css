@@ -22,10 +22,6 @@
 
 }
 
-
-.item_css {
-}
-
 .item_css h3 {
     position: absolute;
     text-align: center;
@@ -35,7 +31,7 @@
     height: 30px;
     line-height: 30px;
     width: 300px;
-    background-color: rgba(200, 200, 200, .7);
+    background-color: rgba(158, 158, 158, 0.938);
     border-radius: 0 0 10px 10px;
 }
 
