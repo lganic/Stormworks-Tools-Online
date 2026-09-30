@@ -17,6 +17,16 @@ function update_tools() {
     
             let started = false;
 
+            if (Object.keys(data).length === 0) {
+                let debug_element = document.createElement('p');
+
+                debug_element.innerText = "No tools were detected. If you are using the live version of the website on stormworks-tools.com, please contact the site administrator lganic. If you are on the local version, please run the python file util/tools_gen.py to fix this issue.";
+
+                tools_div.appendChild(debug_element);
+
+                return;
+            }
+
             for (const [category, items] of Object.entries(data)) {
     
                 if (started) tools_div.append(document.createElement('hr'));
@@ -88,7 +98,20 @@ function update_tools() {
                 });
 
             });
+        }).catch(error => {
+
+            const tools_div = $('tools');
     
+            tools_div.innerHTML = ''; // Clear the existing div.
+
+            let debug_element = document.createElement('p');
+            debug_element.style.color = 'black';
+
+            debug_element.innerText = "Tools file not detected. If you are using the live version of the website on stormworks-tools.com, please contact the site administrator lganic. If you are on the local version, please run the python file util/tools_gen.py to fix this issue.";
+
+            tools_div.appendChild(debug_element);
+
+            return;
         });
 }
 
