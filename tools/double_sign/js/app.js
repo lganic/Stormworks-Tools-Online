@@ -214,7 +214,7 @@ $('sign-height-2').oninput = e => {
 
 async function export_sign() {
 
-    create_and_download_double_sign(target_front_pixels, target_back_pixels, 'output_sign.xml', $('use_glow').checked);
+    create_and_download_double_sign(target_front_pixels, target_back_pixels, 'output_double_sign.xml', $('use_glow').checked);
 }
 
 $('export_sign').onclick = export_sign;
