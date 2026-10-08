@@ -62,6 +62,26 @@ function create_and_download_double_sign(pixels_front, pixels_back, filename, us
     const width = x_tiles * 9;
     const height = y_tiles * 9;
 
+    if (!pixels_front) {
+        alert("Front target not set. Please press the 'Set Front' button on the left hand side");
+        return;
+    }
+
+    if (!pixels_back) {
+        alert("Back target not set. Please press the 'Set Back' button on the left hand side");
+        return;
+    }
+
+    if (pixels_front.length !== pixels_back.length) {
+        alert("Inconsistent sizes between front and back!!! Please ensure that you have set both the front and back targets");
+        return;
+    }
+
+    if (pixels_front.length !== (width * height * 4)) {
+        alert("Target pixels no longer match canvas size. Please adjust the canvas size to be consistent with the desired output size")
+        return;
+    }
+
     let sign_string = 'sign_na';
     if (use_indicator) sign_string = 'sign';
 
