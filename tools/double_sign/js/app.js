@@ -17,6 +17,9 @@ let quantization_amount = 0;
 
 let loadedImage = null;
 
+let target_front_pixels = null;
+let target_back_pixels = null;
+
 const editor = new PixelEditor({
     plot: $('plot'),
     canvas: $('canvas'),
@@ -211,7 +214,54 @@ $('sign-height-2').oninput = e => {
 
 async function export_sign() {
 
-    create_and_download_sign(editor.pixels, 'output_sign.xml', $('use_glow').checked);
+    create_and_download_double_sign(target_front_pixels, target_back_pixels, 'output_sign.xml', $('use_glow').checked);
 }
 
 $('export_sign').onclick = export_sign;
+
+
+const PREVIEW_MAX_W = 110; // CSS px; one preview gets roughly half the sidebar
+const PREVIEW_MAX_H = 72;
+
+// Snapshots of each side, kept for the double-sign export later.
+const sides = { front: null, back: null };
+
+function draw_side_preview(canvas, imageData) {
+    const { width: w, height: h } = imageData;
+
+    // Fit inside the fixed box while keeping the sign's aspect ratio.
+    const scale = Math.min(PREVIEW_MAX_W / w, PREVIEW_MAX_H / h);
+    const css_w = Math.round(w * scale);
+    const css_h = Math.round(h * scale);
+
+    // Backing store at device resolution so it stays sharp on HiDPI screens.
+    const dpr = window.devicePixelRatio || 1;
+    canvas.style.width = `${css_w}px`;
+    canvas.style.height = `${css_h}px`;
+    canvas.width = Math.round(css_w * dpr);
+    canvas.height = Math.round(css_h * dpr);
+
+    // putImageData ignores scaling, so draw at 1:1 on a temp canvas first.
+    const temp = document.createElement('canvas');
+    temp.width = w;
+    temp.height = h;
+    temp.getContext('2d').putImageData(imageData, 0, 0);
+
+    const ctx = canvas.getContext('2d');
+    ctx.imageSmoothingEnabled = false; // We want chunky
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(temp, 0, 0, canvas.width, canvas.height);
+}
+
+function set_side(name) {
+    sides[name] = editor.getImageData(); // already returns a copy
+    draw_side_preview($(`${name}-canvas`), sides[name]);
+}
+
+$('set-front-canvas').onclick = () => {set_side('front'); target_front_pixels = [...editor.pixels]};
+$('set-back-canvas').onclick = () => {set_side('back'); target_back_pixels = [...editor.pixels]};
+
+// Initialize the side previews as blank.
+const blank = new ImageData(editor.gridWidth, editor.gridHeight);
+draw_side_preview($('front-canvas'), blank);
+draw_side_preview($('back-canvas'), blank);

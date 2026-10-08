@@ -54,7 +54,7 @@ function toPosition(x, y, z) {
     return `<vp ${x_str}${y_str}${z_str} />`;
 }
 
-function create_and_download_sign(pixels, filename, use_indicator) {
+function create_and_download_double_sign(pixels_front, pixels_back, filename, use_indicator) {
 
     const x_tiles = $('sign-width').value;
     const y_tiles = $('sign-height').value;
@@ -91,9 +91,9 @@ function create_and_download_sign(pixels, filename, use_indicator) {
                     let b_p = 4 * (y_absolute * width + x_absolute);
 
                     output += toStringColor([
-                        pixels[b_p],
-                        pixels[b_p + 1],
-                        pixels[b_p + 2],
+                        pixels_front[b_p],
+                        pixels_front[b_p + 1],
+                        pixels_front[b_p + 2],
                     ]);
                 }
             }
@@ -139,19 +139,19 @@ function create_and_download_sign(pixels, filename, use_indicator) {
                     
                     if (flip_image) {
                         // Flips so that both sides match.
-                        x_absolute = width - (9 * x_tile + (8 - x_pixel)) - 1;
+                        x_absolute = 9 * x_tile + (8 - x_pixel);
                     }
                     else {
-                        x_absolute = 9 * x_tile + (8 - x_pixel);
+                        x_absolute = width - (9 * x_tile + (8 - x_pixel)) - 1;
                     }
 
                     let y_absolute = 9 * y_tile + y_pixel;
                     let b_p = 4 * (y_absolute * width + x_absolute);
 
                     output += toStringColor([
-                        pixels[b_p],
-                        pixels[b_p + 1],
-                        pixels[b_p + 2],
+                        pixels_back[b_p],
+                        pixels_back[b_p + 1],
+                        pixels_back[b_p + 2],
                     ]);
                 }
             }
@@ -203,16 +203,6 @@ function create_and_download_sign(pixels, filename, use_indicator) {
         // Right side.
         output += `<c><o r="1,0,0,0,0,0,0,0,0" sc="6">${toPosition(x_right, -1, y_tile - Math.floor(y_tiles / 2))}</o></c>`;
     }
-
-
-
-                //     <c>
-                //     <o r="1,0,0,0,1,0,0,0,1" sc="6">
-                //         <vp y="1" z="2" />
-                //     </o>
-                // </c>
-
-    
 
     output += '</components></body></bodies><logic_node_links /></vehicle>';
 

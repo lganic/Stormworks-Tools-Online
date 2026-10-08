@@ -85,12 +85,22 @@
             <div class="eyebrow">EXPORT</div>
 
             <section class="export-tools" id="tools">
-            <button id="export_sign">Export</button>
-            <br>
-            <label><input id="flip_image" type="checkbox"> Flip Other Side</label>
-            <label><input id="use_glow" type="checkbox"> Use Indicators</label>
-            </section>
+                <label><input id="flip_image" type="checkbox"> Flip Back Side</label>
+                <label><input id="use_glow" type="checkbox"> Use Indicators</label>
+                
+                <div class="side-previews">
+                    <div class="side-preview">
+                        <button id="set-front-canvas">Set Front</button>
+                        <canvas id="front-canvas"></canvas>
+                    </div>
+                    <div class="side-preview">
+                        <button id="set-back-canvas">Set Back</button>
+                        <canvas id="back-canvas"></canvas>
+                    </div>
+                </div>
 
+                <button id="export_sign">Export</button>
+            </section>
 
             <div class="eyebrow">SIZE</div>
             <section class="export-tools" id="tools">

@@ -24,3 +24,26 @@
     font-weight: 600;
     font-size: 13px
 }
+
+.side-previews {
+    grid-column: 1 / -1;          /* span both columns of .export-tools */
+    display: flex;
+    gap: 8px;
+}
+
+.side-preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.side-preview canvas {
+    position: static;             /* undo base.css's absolute positioning */
+    width: 110px;                 /* default box before a side is set; JS overrides inline */
+    height: 72px;
+    image-rendering: pixelated;   /* keep sign pixels crisp */
+    border: 1px solid #d9d9e6;
+    background: #faf9fd;
+}
