@@ -135,16 +135,15 @@ function create_and_download_sign(pixels, filename, use_indicator) {
                     started = true;
 
                     // Calculate the buffer start coordinate.
-                    // let x_absolute = width - (9 * x_tile + x_pixel) - 1;
-
-
-                    // TODO: Make a way to flip between this expression:
-                    // let x_absolute = width - (9 * x_tile + (8 - x_pixel)) - 1;
-
-                    // Which flips so that both sides match.
-                    // And this one:
-                    let x_absolute = 9 * x_tile + (8 - x_pixel);
-
+                    let x_absolute;
+                    
+                    if (flip_image) {
+                        // Flips so that both sides match.
+                        x_absolute = width - (9 * x_tile + (8 - x_pixel)) - 1;
+                    }
+                    else {
+                        x_absolute = 9 * x_tile + (8 - x_pixel);
+                    }
 
                     let y_absolute = 9 * y_tile + y_pixel;
                     let b_p = 4 * (y_absolute * width + x_absolute);
