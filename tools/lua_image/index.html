@@ -4,15 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Stormworks Sign Editor</title>
-    <meta name="description" content="All in one editor for Stormworks signs">
+    <title>Stormworks Lua Image Editor</title>
+    <meta name="description" content="All in one editor for Stormworks Lua Images">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/pixel-editor.css">
+    <link rel="stylesheet" href="/css/loading-modal.css">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="/js/pixel-editor.js"></script>
     <script defer src="/js/quantization.js"></script>
-    <script defer src="js/sign.js"></script>
+    <script defer src="/js/loading-modal.js" defer></script>
     <script defer src="js/app.js"></script>
+    <script defer src="js/optimize.js"></script>
 </head>
 
 <body>
@@ -85,8 +87,8 @@
             <div class="eyebrow">EXPORT</div>
 
             <section class="export-tools" id="tools">
-            <button id="export_sign">Export</button>
-            <label><input id="use_glow" type="checkbox" checked> Optimize</label>
+            <button id="export_lua">Export</button>
+            <label><input id="optimize" type="checkbox" checked> Optimize</label>
             </section>
 
 

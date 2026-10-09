@@ -210,10 +210,34 @@ $('monitor-height-2').oninput = e => {
     update_preview();
 }; 
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function export_sign() {
+async function export_lua() {
 
-    create_and_download_sign(editor.pixels, 'output_sign.xml', $('use_glow').checked);
+    let hex_matrix = await convert_to_hex_matrix(editor.pixels);
+
+    let groups = await get_groups(hex_matrix);
+
+    let objs = await get_optimized(groups, hex_matrix);
+
+    console.log(objs);
+
+    // start_loading_modal("Loading Image", [
+    // "Obtaining File",
+    // "Decoding",
+    // "Converting"
+    // ]);
+
+    // await 
+
+    // await sleep(2000);
+    // update_loading_modal("Obtaining File");
+    // await sleep(2000);
+    // update_loading_modal("Decoding");
+    // await sleep(2000);
+    // update_loading_modal("Converting");
+    // await sleep(2000);
+
+    // close_loading_modal();
 }
-
-$('export_sign').onclick = export_sign;
+$('export_lua').onclick = async () => {await export_lua()};
