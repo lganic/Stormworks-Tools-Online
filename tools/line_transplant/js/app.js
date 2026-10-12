@@ -54,9 +54,9 @@ function export_map_data() {
     export_data = new MapGeometry();
 
     // Paste the map geometry from the base tile.
-    for (let i = 0; i < 11; i ++) {
-        const base_mesh = base_data.meshes[i];
-        const export_mesh = export_data.meshes[i];
+    for (const layer_name of export_data.memory_order) {
+        const base_mesh = base_data.meshes[layer_name];
+        const export_mesh = export_data.meshes[layer_name];
 
         export_mesh.verts = [...base_mesh.verts];
         export_mesh.tris = [...base_mesh.tris];
