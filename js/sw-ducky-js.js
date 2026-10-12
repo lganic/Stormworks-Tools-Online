@@ -446,7 +446,7 @@ class MapGeometry {
         if (typeof moon !== "boolean") throw new TypeError("moon must be a boolean");
         this.moon = moon;
         
-        this.meshes = [];
+        this.meshes = {};
         this.lines = [];
 
         this.memory_order = [...(moon ? MOON_LAYER_MEM_ORDER : EARTH_LAYER_MEM_ORDER)];
@@ -454,14 +454,11 @@ class MapGeometry {
 
         this.base_color = moon ? BASE_COLORS['Moon'] : BASE_COLORS['Earth'];
 
-        this.layer_colors = [];
-        for (let i = 0; i < 11; i ++) {
-            this.layer_colors.push(moon ? MOON_COLORS[this.render_order[i]] : EARTH_COLORS[this.render_order[i]]);
-        }
+        this.layer_colors = moon ? MOON_COLORS : EARTH_COLORS;
 
         if (file_buffer === null) {
-            for (let i = 0; i < 11; i++) {
-                this.meshes.push(new Mesh());
+            for (const layer_name of this.memory_order) {
+                this.meshes[layer_name] = new Mesh();
             }
             for (let i = 0; i < 10; i++) {
                 this.lines.push(new LineGroup());
@@ -470,8 +467,8 @@ class MapGeometry {
             return;
         }
 
-        for (let i = 0; i < 11; i++) {
-            this.meshes.push(new Mesh(file_buffer));
+        for (const layer_name of this.memory_order) {
+            this.meshes[layer_name] = new Mesh(file_buffer);
         }
         for (let i = 0; i < 10; i++) {
             this.lines.push(new LineGroup(file_buffer));
@@ -484,8 +481,8 @@ class MapGeometry {
 
         let writer = new Writer(max_size);
 
-        for (let i = 0; i < 11; i ++) {
-            this.meshes[i].export(writer);
+        for (const layer_name of this.memory_order) {
+            this.meshes[layer_name].export(writer);
         }
         for (let i = 0; i < 10; i ++) {
             this.lines[i].export(writer);
@@ -496,13 +493,14 @@ class MapGeometry {
 
     render_to_image(size, canvas = null) {
         const tc = new TileCanvas(size, this.base_color, canvas);
-        for (let i = 0; i < 11; i ++) {
+        for (const layer_name of this.render_order) {
 
-            const mesh = this.meshes[i];
+            const mesh = this.meshes[layer_name];
 
             for (const tri of mesh.tris) {
-                tc.triangle(tri.map(k => mesh.verts[k]), this.layer_colors[i]);
+                tc.triangle(tri.map(k => mesh.verts[k]), this.layer_colors[layer_name]);
             }
+
         }
 
         for (let i = 0; i < 10; i ++) {
