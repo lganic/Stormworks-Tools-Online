@@ -10,7 +10,7 @@ A collection of online tools for Stormworks, providing various utilities for cre
 
 ## Installation
 
-The site is hosted here [stormworks-tools.com](https://stormworks-tools.com).
+The site is hosted here [stormworks-tools.com](https://stormworks-tools.com/tools).
 
 This project is designed to run only on the client side, for security and simplicity. 
 
